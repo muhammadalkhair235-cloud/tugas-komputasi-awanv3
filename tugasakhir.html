@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUALAN LONTONG - BISNIS PRIBADI</title>
+    <link rel="stylesheet" href="tugasakhir.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#" class="logo">JUALAN LONTONG</a>
+            <div class="nav-links">
+                <a href="#beranda">Beranda</a>
+                <a href="fitur.html">Fitur</a>
+                <a href="menu.html">MENU-MENU</a>
+                <a href="kontak.html">Kontak</a>
+                <a href="pembayaran.html">pembayaran</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="beranda">
+        <div class="hero-content">
+            <h1>MAMPIR JIKA ANDA LAPAR</h1>
+            <p>WARUNG TERBAIK DI JLN PANGLIMA DENAI UNTUK MENGHILANGKAN RASA LAPAR ANDA</p>
+            <a href="fitur.html" class="btn">Mulai Sekarang</a>
+        </div>
+    </section>
+
+    <!--<section class="features" id="fitur">
+        <div class="section-title">
+            <h2>WARUNG UNGGULAN</h2>
+            <p>SOLUSI LENGKAP KETIKA ANDA LAPAR</p>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>MENU-MENU YANG TERSEDIA</h3>
+                <p>NASI GURIH, LONTONG, NASI SAYUR, SOTO, DAN ANEKA GORENGAN LAINNYA</p>
+            </div>
+            <div class="feature-card">
+                <h3>BERALAMATKAN DI</h3>
+                <p>JALAN PANGLIMA DENAI GG PUSAKA NO 6, TEPAT DI DEPAN PANGKAS DAN DI SEBELAH TOKO SORUM</p>
+            </div>
+            <div class="feature-card">
+                <h3>PEMBAYARAN</h3>
+                <p>KITA MENGGUNAKAN METODE PEMBAYARAN CASH SECARA LANGSUNG</p>
+            </div>
+        </div>
+    </section> -->
+
+    <!--<section class="menu" id="menu">
+        <div class="section-title">
+            <h2>MENU KAMI</h2>
+            <p>PILIH MENU FAVORIT ANDA</p>
+        </div>
+        <div class="menu-grid">
+            <div class="menu-card" onclick="scrollToMenu('lontong')">
+                <img src="lontong.JPG" alt="Lontong - Menu Sarapan">
+                <h3>LONTONG</h3>
+                <p>"Lontong ini menjadi makanan ciri khas sarapan pagi yang selalu dicari banyak orang."</p>
+                <span class="price">Rp 10.000</span>
+            </div>
+            <div class="menu-card" onclick="scrollToMenu('nasi-gurih')">
+                <img src="nasi gurih.jpeg" alt="Nasi Gurih - Favorit Anak-anak">
+                <h3>NASI GURIH</h3>
+                <p>"Nasi gurih memiliki cita rasa khas dengan tekstur nasi yang sedikit berlemak."</p>
+                <span class="price">Rp 10.000</span>
+            </div>
+            <div class="menu-card" onclick="scrollToMenu('nasi-sayur')">
+                <img src="nasi sayur.jpeg" alt="Nasi Sayur - Lezat dan Segar">
+                <h3>NASI SAYUR</h3>
+                <p>"Nasi sayur dipadukan dengan kuah lontong dan lauk tambahan yang menggugah selera."</p>
+                <span class="price">Rp 10.000</span>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- <section class="contact" id="kontak">
+        <div class="section-title">
+            <h2>Hubungi Kami</h2>
+            <p>Kami siap menerima pesanan Anda</p>
+        </div>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Pesanan berhasil dikirim!');">
+            <input type="text" placeholder="Nama Anda" required>
+            <input type="email" placeholder="Email Anda" required>
+            <input type="tel" placeholder="Nomor Telepon">
+            <textarea placeholder="Pesanan Anda" required></textarea>
+            <button type="submit" class="btn">Kirim Pesan</button>
+        </form>
+    </section> -->
+
+    <footer>
+        <p>&copy; WARUNG LONTONG NENEK</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+
+        document.querySelectorAll('.feature-card, .testimonial-card').forEach(el => observer.observe(el));
+
+        function scrollToMenu(menuId) {
+            const menuSection = document.getElementById('menu-details');
+            const menuItem = document.getElementById(menuId);
+            
+            menuSection.scrollIntoView({ behavior: 'smooth' });
+            
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.style.display = 'none';
+            });
+            menuItem.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMKM Indonesia - Wirausaha Kreatif</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #f39c12;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 5%;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.3s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s;
+            animation: fadeInUp 1s ease 0.6s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .features {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: #666;
+        }
+
+        .testimonials {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5rem 5%;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .testimonial-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card h3 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonial-card p {
+            color: #ddd;
+        }
+
+        .contact {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 5%;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#" class="logo">UMKM Indonesia</a>
+            <div class="nav-links">
+                <a href="#beranda">Beranda</a>
+                <a href="#fitur">Fitur</a>
+                <a href="#testimoni">Testimoni</a>
+                <a href="#kontak">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="beranda">
+        <div class="hero-content">
+            <h1>Wujudkan Impian Bisnis Anda</h1>
+            <p>Platform terbaik untuk mengembangkan UMKM Anda dengan fitur-fitur modern dan dukungan penuh</p>
+            <a href="#kontak" class="btn">Mulai Sekarang</a>
+        </div>
+    </section>
+
+    <section class="features" id="fitur">
+        <div class="section-title">
+            <h2>Fitur Unggulan</h2>
+            <p>Solusi lengkap untuk pengembangan UMKM Anda</p>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>Pemasaran Digital</h3>
+                <p>Manfaatkan teknologi digital untuk memperluas jangkauan pasar Anda dengan strategi pemasaran yang efektif.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Pelatihan Bisnis</h3>
+                <p>Akses berbagai materi pelatihan untuk meningkatkan kemampuan manajemen dan pengembangan bisnis.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Pembiayaan</h3>
+                <p>Dapatkan akses ke berbagai program pembiayaan dan pinjaman yang sesuai dengan kebutuhan bisnis Anda.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimoni">
+        <div class="section-title">
+            <h2>Testimoni</h2>
+            <p>Kisah sukses dari para pelaku UMKM</p>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Testimoni 1">
+                <h3>Siti Aminah</h3>
+                <p>"Berkat platform ini, bisnis kerajinan tangan saya berkembang pesat dan bisa menjangkau pasar yang lebih luas."</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Testimoni 2">
+                <h3>Budi Santoso</h3>
+                <p>"Pelatihan yang diberikan sangat membantu dalam mengembangkan strategi pemasaran online."</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Testimoni 3">
+                <h3>Dewi Putri</h3>
+                <p>"Akses pembiayaan yang mudah membantu saya mengembangkan usaha kuliner saya."</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="kontak">
+        <div class="section-title">
+            <h2>Hubungi Kami</h2>
+            <p>Kami siap membantu pengembangan UMKM Anda</p>
+        </div>
+        <form class="contact-form">
+            <input type="text" placeholder="Nama Anda" required>
+            <input type="email" placeholder="Email Anda" required>
+            <input type="tel" placeholder="Nomor Telepon">
+            <textarea placeholder="Pesan Anda" required></textarea>
+            <button type="submit" class="btn">Kirim Pesan</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 UMKM Indonesia. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling untuk navigasi
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animasi saat scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+
+        document.querySelectorAll('.feature-card, .testimonial-card').forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html> 

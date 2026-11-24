@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUALAN LONTONG - BISNIS PRIBADI</title>
+    <link rel="stylesheet" href="tugasakhir.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#" class="logo">JUALAN LONTONG</a>
+            <div class="nav-links">
+                <a href="tugasakhir.html">Beranda</a>
+                <a href="fitur.html">Fitur</a>
+                <a href="menu.html">MENU-MENU</a>
+                <a href="kontak.html">Kontak</a>
+                <a href="pembayaran.html">Pembayaran</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="contact" id="kontak">
+        <div class="section-title">
+            <h2>Hubungi Kami</h2>
+            <p>Kami siap menerima pesanan Anda</p>
+        </div>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Pesanan berhasil dikirim!');">
+            <input type="text" placeholder="Nama Anda" required>
+            <input type="email" placeholder="Email Anda" required>
+            <input type="tel" placeholder="Nomor Telepon">
+            <textarea placeholder="Pesanan Anda" required></textarea>
+            <button type="submit" class="btn">Kirim Pesan</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; WARUNG LONTONG NENEK</p>
+    </footer>
+</body>
+</html>
